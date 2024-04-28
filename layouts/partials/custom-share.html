@@ -1,0 +1,73 @@
+<div style="display: flex; gap: 8px">
+  <a
+    href="https://wavebox.me/wave/8u39ka45egg7pclc/"
+    target="_blank"
+    rel="noopener"
+    style="
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 40px;
+      background-color: #c7223b;
+      border-radius: 5px;
+      text-decoration: none;
+      color: white;
+    "
+  >
+    {{ partial "icon.html" "heart" }}&nbsp;拍手する
+  </a>
+  <a
+    href="https://b.hatena.ne.jp/entry/"
+    class="hatena-bookmark-button"
+    data-hatena-bookmark-layout="touch"
+    title="このエントリーをはてなブックマークに追加"
+    ><img
+      src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png"
+      alt="このエントリーをはてなブックマークに追加"
+      width="20"
+      height="20"
+      style="border: none"
+  /></a>
+  <script
+    type="text/javascript"
+    src="https://b.st-hatena.com/js/bookmark_button.js"
+    charset="utf-8"
+    async="async"
+  ></script>
+
+  <a
+    href="https://anypost.dev/share"
+    onclick="window.open(this.href+'?s='+location.href+'&t='+document.title, '', 'width=500,height=750'); return false;"
+    style="
+      color: white;
+      text-decoration: none;
+      width: 91px;
+      display: block;
+      background: rgb(0, 0, 128);
+      border-radius: 5px;
+      text-align: center;
+      padding: 0;
+    "
+  >
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        font-size: 14px;
+      "
+    >
+      <img
+        src="https://anypost.dev/external-assets/share.svg"
+        width="14"
+        alt="share"
+        class="nozoom"
+        style="flex-shrink: 0; margin: 2px"
+      />
+      <span>Share</span>
+    </div>
+    <div style="font-size: 0.5em; text-align: center">via anypost.dev</div>
+  </a>
+</div>
