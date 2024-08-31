@@ -1,24 +1,6 @@
 {{ with .Params.shareButton | default (.Site.Params.article.shareButton | default true) }}
   <div style="display: flex; gap: 8px">
     <a
-      href="https://wavebox.me/wave/8u39ka45egg7pclc/"
-      target="_blank"
-      rel="noopener"
-      style="
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 100px;
-        height: 40px;
-        background-color: #c7223b;
-        border-radius: 5px;
-        text-decoration: none;
-        color: white;
-      "
-    >
-      {{ partial "icon.html" "heart" }}&nbsp;応援する
-    </a>
-    <a
       href="https://ofuse.me/ryouu"
       target="_blank"
       rel="noopener"
@@ -26,15 +8,15 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 120px;
+        width: 140px;
         height: 40px;
-        background-color: #f0ff7c;
+        background-color: #ec9097;
         border-radius: 5px;
         text-decoration: none;
-        color: black;
+        color: white;
       "
     >
-      {{ partial "icon.html" "heart-empty" }}&nbsp;OFUSEする
+      {{ partial "icon.html" "heart" }}&nbsp;OFUSEで応援
     </a>
     <a
       href="https://b.hatena.ne.jp/entry/"
