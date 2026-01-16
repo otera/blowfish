@@ -64,6 +64,41 @@ This is an error!
 
 <br/><br/><br/>
 
+## Admonition
+
+Admonition 用于在内容中插入醒目提示。
+
+Admonition 的用途与 alert shortcode 类似，但其实现方式是通过 Hugo 的 render hooks。两者的关键区别在于语法：admonition 使用 Markdown 语法，因此在不同平台之间具有更好的可移植性；而 shortcode 是 Hugo 专有的。其语法类似 GitHub 的 alerts：
+
+```md
+> [!TIP]
+> 一个 Tip 类型的提示块。
+
+> [!TIP]+ 自定义标题
+> 一个带有自定义标题的可折叠提示块。
+{icon="twitter"}
+```
+
+> [!TIP]
+> 一个 Tip 类型的提示块。
+
+> [!TIP]+ 自定义标题
+> 一个带有自定义标题的可折叠提示块。
+{icon="twitter"}
+
+提示符号（`+` 或 `-`）是可选的，用于控制提示块是否默认折叠。请注意，该提示符号仅在 Obsidian 中兼容。
+
+> [!INFO]- 支持的类型
+> 可用的 admonition 类型包括 [GitHub alert 类型](https://github.blog/changelog/2023-12-14-new-markdown-extension-alerts-provide-distinctive-styling-for-significant-content/) 和 [Obsidian callout 类型](https://help.obsidian.md/callouts)。类型名称不区分大小写。
+>
+> **GitHub 类型：** `NOTE`, `TIP`, `IMPORTANT`, `WARNING`, `CAUTION`  
+> **Obsidian 类型：** `note`, `abstract`, `info`, `todo`, `tip`, `success`, `question`, `warning`, `failure`, `danger`, `bug`, `example`, `quote`
+
+> [!INFO]- 自定义提示框
+> 请参阅 [提示框自定义指南](https://github.com/nunocoracao/blowfish/blob/main/layouts/_default/_markup/render-blockquote.html)。
+
+<br/><br/><br/>
+
 ## Article
 
 `Article` 将把一篇文章嵌入到一个 markdown 文件中。 参数中的 `link`应该是要嵌入的文件的 `.RelPermalink`。请注意，如果简码引用其父级文件，则它不会显示任何内容。 *注意：如果您在 Blowfish（即 /blowfish/）等子文件夹中运行网站，请在链接中包含该路径。*
@@ -724,6 +759,169 @@ B-->C[Profit]
 
 <br/><br/><br/>
 
+## Tabs
+
+`tabs` 简码常用于呈现某个步骤的不同变体。例如，可用于展示在不同平台上安装 VS Code 的方式。
+
+| 参数        | 描述                                      |
+| --------- | --------------------------------------- |
+| `group`   | **可选。** 用于同步切换标签页的组名。具有相同组名的所有标签页将一起切换。 |
+| `default` | **可选。** 默认激活的标签页的标签。如果未设置，默认激活第一个标签页。   |
+| `label`   | **必填。** 显示在标签按钮上的文本标签。                  |
+| `icon`    | **可选。** 在标签前显示的图标名称。                    |
+
+**示例 1：基本用法**
+
+````md
+{{</* tabs */>}}
+
+    {{</* tab label="Windows" */>}}
+    使用 Chocolatey 安装:
+
+    ```pwsh
+    choco install vscode.install
+    ```
+
+    或使用 WinGet 安装
+
+    ```pwsh
+    winget install -e --id Microsoft.VisualStudioCode
+    ```
+    {{</* /tab */>}}
+
+    {{</* tab label="macOS" */>}}
+    ```bash
+    brew install --cask visual-studio-code
+    ```
+    {{</* /tab */>}}
+
+    {{</* tab label="Linux" */>}}
+    参见[文档](https://code.visualstudio.com/docs/setup/linux#_install-vs-code-on-linux)。
+    {{</* /tab */>}}
+
+{{</* /tabs */>}}
+````
+
+**输出**
+
+{{< tabs >}}
+
+    {{< tab label="Windows" >}}
+    使用 Chocolatey 安装:
+
+    ```pwsh
+    choco install vscode.install
+    ```
+
+    或使用 WinGet 安装
+
+    ```pwsh
+    winget install -e --id Microsoft.VisualStudioCode
+    ```
+    {{< /tab >}}
+
+    {{< tab label="macOS" >}}
+    ```bash
+    brew install --cask visual-studio-code
+    ```
+    {{< /tab >}}
+
+    {{< tab label="Linux" >}}
+    参见[文档](https://code.visualstudio.com/docs/setup/linux#_install-vs-code-on-linux)。
+    {{< /tab >}}
+
+{{< /tabs >}}
+
+**示例 2：使用 Group、Default 和 Icon**
+
+`````md
+{{</* tabs group="lang" default="Python" */>}}
+    {{</* tab label="JavaScript" icon="code" */>}}
+    ```javascript
+    console.log("Hello");
+    ```
+    {{</* /tab */>}}
+
+    {{</* tab label="Python" icon="sun" */>}}
+    ```python
+    print("Hello")
+    ```
+    {{</* /tab */>}}
+
+    {{</* tab label="Go" icon="moon" */>}}
+    ```go
+    fmt.Println("Hello")
+    ```
+    {{</* /tab */>}}
+{{</* /tabs */>}}
+
+{{</* tabs group="lang" default="Python" */>}}
+    {{</* tab label="JavaScript" icon="code" */>}}
+    ```javascript
+    const add = (a, b) => a + b;
+    ```
+    {{</* /tab */>}}
+
+    {{</* tab label="Python" icon="sun" */>}}
+    ```python
+    def add(a, b): return a + b
+    ```
+    {{</* /tab */>}}
+
+    {{</* tab label="Go" icon="moon" */>}}
+    ```go
+    func add(a, b int) int { return a + b }
+    ```
+    {{</* /tab */>}}
+{{</* /tabs */>}}
+`````
+
+**Output**
+
+{{< tabs group="lang" default="Python" >}}
+    {{< tab label="JavaScript" icon="code" >}}
+    ```javascript
+    console.log("Hello");
+    ```
+    {{< /tab >}}
+
+    {{< tab label="Python" icon="sun" >}}
+    ```python
+    print("Hello")
+    ```
+    {{< /tab >}}
+
+    {{< tab label="Go" icon="moon" >}}
+    ```go
+    fmt.Println("Hello")
+    ```
+    {{< /tab >}}
+{{< /tabs >}}
+
+{{< tabs group="lang" default="Python" >}}
+    {{< tab label="JavaScript" icon="code" >}}
+    ```javascript
+    const add = (a, b) => a + b;
+    ```
+    {{< /tab >}}
+
+    {{< tab label="Python" icon="sun" >}}
+    ```python
+    def add(a, b): return a + b
+    ```
+    {{< /tab >}}
+
+    {{< tab label="Go" icon="moon" >}}
+    ```go
+    func add(a, b int) int { return a + b }
+    ```
+    {{< /tab >}}
+{{< /tabs >}}
+
+在这个示例中，两个标签组都使用了相同的 `group="lang"` 参数，因此点击任意一个标签时，两个标签组都会同步切换。`default="Python"` 参数用于指定 Python 为初始激活的标签，而 `icon="code"` 会在每个标签标题前添加一个图标。
+
+<br/><br/><br/>
+
 ## 时间线
 
 `timeline` 创建了一个可视化时间线，用于展示专业经验、项目成就等。 `timeline` 简码依赖于 `timelineItem` 子简码来定义主时间线中的每个项目。每个项目可以具有以下属性。
@@ -895,6 +1093,54 @@ consectetur adipiscing elit.
 "Toto, I've a feeling we're not in Kansas anymore." The Wizard of Oz (1939)
 {{< /typeit >}}
 
+
+<br/><br/><br/>
+
+## Video
+
+Blowfish 提供 `video` 简码，用于在内容中嵌入本地或外部视频。该简码会渲染一个 `<figure>` 容器，包含自适应的视频播放器和可选说明。
+
+`video` 简码支持以下参数：
+
+<!-- prettier-ignore-start -->
+| 参数 | 说明 |
+| --- | --- |
+| `src` | **必填。** 视频 URL 或本地路径。本地查找顺序：页面资源 → `assets/` → `static/`。 |
+| `poster` | 可选的封面图 URL 或本地路径。未提供时，会尝试在页面 bundle 中寻找同名图片。 |
+| `caption` | 可选的 Markdown 说明文字，显示在视频下方。 |
+| `autoplay` | `true`/`false`。为 `true` 时自动播放。默认：`false`。 |
+| `loop` | `true`/`false`。为 `true` 时循环播放。默认：`false`。 |
+| `muted` | `true`/`false`。为 `true` 时静音。默认：`false`。 |
+| `controls` | `true`/`false`。为 `true` 时显示浏览器默认播放控制条。默认：`true`。 |
+| `playsinline` | `true`/`false`。为 `true` 时在移动端内联播放。默认：`true`。 |
+| `preload` | `metadata`（仅加载信息）、`none`（节省带宽）或 `auto`（预加载更多）。默认：`metadata`。 |
+| `start` | 可选的开始时间（秒）。 |
+| `end` | 可选的结束时间（秒）。 |
+| `ratio` | 为播放器预留的宽高比。支持 `16/9`、`4/3`、`1/1` 或自定义 `W/H`。默认：`16/9`。 |
+| `fit` | 视频在比例中的适配方式：`contain`（不裁切）、`cover`（裁切填满）、`fill`（拉伸）。默认：`contain`。 |
+<!-- prettier-ignore-end -->
+
+如果浏览器无法播放视频，播放器会显示一段简短的英文提示并提供下载链接。
+
+**示例：**
+
+```md
+{{</* video
+    src="https://upload.wikimedia.org/wikipedia/commons/5/5a/CC0_-_Public_Domain_Dedication_video_bumper.webm"
+    poster="https://upload.wikimedia.org/wikipedia/commons/e/e0/CC0.jpg"
+    caption="**公有领域演示** — CC0 视频与封面。"
+    loop=true
+    muted=true
+*/>}}
+```
+
+{{< video
+  src="https://upload.wikimedia.org/wikipedia/commons/5/5a/CC0_-_Public_Domain_Dedication_video_bumper.webm"
+  poster="https://upload.wikimedia.org/wikipedia/commons/e/e0/CC0.jpg"
+  caption="**公有领域演示** — CC0 视频与封面。"
+  loop=true
+  muted=true
+>}}
 
 <br/><br/><br/>
 
