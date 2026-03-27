@@ -1,22 +1,36 @@
 {{ with .Params.shareButton | default (.Site.Params.article.shareButton | default true) }}
-  <div style="display: flex; gap: 8px">
+  <style>
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      border-radius: 5px;
+      text-decoration: none;
+      color: white;
+      transition: filter 0.2s;
+    }
+    .share-btn:hover {
+      filter: brightness(0.85);
+    }
+    .share-btn-ofuse {
+      width: 145px;
+      background-color: #ec9097;
+    }
+    .share-btn-anypost {
+      width: 100px;
+      background: #2d3748;
+      border: 1px solid #4a5568;
+    }
+  </style>
+  <div style="display: flex; gap: 8px; align-items: center">
     <a
       href="https://ofuse.me/ryouu"
       target="_blank"
       rel="noopener"
-      style="
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 140px;
-        height: 40px;
-        background-color: #ec9097;
-        border-radius: 5px;
-        text-decoration: none;
-        color: white;
-      "
+      class="share-btn share-btn-ofuse"
     >
-      {{ partial "icon.html" "heart" }}&nbsp;OFUSEで応援
+      <div style="margin-right: 6px">{{ partial "icon.html" "heart" }}</div>OFUSEで応援
     </a>
     <a
       href="https://b.hatena.ne.jp/entry/"
@@ -28,7 +42,7 @@
         alt="このエントリーをはてなブックマークに追加"
         width="20"
         height="20"
-        style="border: none"
+        style="border: none;"
     /></a>
     <script
       type="text/javascript"
@@ -36,40 +50,34 @@
       charset="utf-8"
       async="async"
     ></script>
-
     <a
       href="https://anypost.dev/share"
-      onclick="window.open(this.href+'?s='+location.href+'&t='+document.title, '', 'width=500,height=750'); return false;"
-      style="
-        color: white;
-        text-decoration: none;
-        width: 91px;
-        display: block;
-        background: rgb(0, 0, 128);
-        border-radius: 5px;
-        text-align: center;
-        padding: 0;
+      onclick="
+        window.open(
+          this.href + '?s=' + location.href + '&t=' + document.title,
+          '',
+          'width=500,height=750',
+        );
+        return false;
       "
+      rel="noopener"
+      class="share-btn share-btn-anypost"
     >
-      <div
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 5px;
-          font-size: 14px;
-        "
+      <svg
+        width="16"
+        height="16"
+        style="margin-right: 6px"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
       >
-        <img
-          src="https://anypost.dev/external-assets/share.svg"
-          width="14"
-          alt="share"
-          class="nozoom"
-          style="flex-shrink: 0; margin: 2px"
-        />
-        <span>Share</span>
-      </div>
-      <div style="font-size: 0.5em; text-align: center">via anypost.dev</div>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+        ></path>
+      </svg>Share
     </a>
   </div>
 {{ end }}
