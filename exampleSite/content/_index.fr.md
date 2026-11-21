@@ -1,6 +1,7 @@
 ---
 title: "Créez un site qui vous ressemble vraiment."
 description: "Un thème Hugo moderne et flexible pour les blogs, la documentation, les portfolios et plus encore."
+lastmod: 2026-08-30
 heroLead: "Blowfish vous offre des layouts expressifs, des réglages par défaut bien pensés et des blocs de contenu pratiques, pour vous concentrer sur ce que vous voulez dire."
 heroButtons:
   - label: "Commencer"
@@ -35,3 +36,9 @@ Découvrez des sites réels, des contributions de la communauté et des patterns
 Blowfish inclut un skill qui apprend à Claude Code et à d'autres agents de codage à installer, configurer et utiliser le thème.
 {{< /feature >}}
 {{< /feature-grid >}}
+
+{{< alert >}}
+**Blowfish v3.10 est disponible.** Créez un nouveau site avec `npx blowfish-tools new <site>` ou [mettez à niveau un site existant]({{< ref "guides/202608-upgrade-to-blowfish-v3" >}}).
+
+**Vous travaillez avec un agent de codage ?** Dans Claude Code, exécutez `/plugin marketplace add nunocoracao/blowfish`, puis `/plugin install blowfish@blowfish`. Pour un autre agent qui lit les skills du projet, copiez le [dossier du skill `blowfish`](https://github.com/nunocoracao/blowfish/tree/main/.claude/skills/blowfish) dans `.claude/skills/blowfish/` de votre site.
+{{< /alert >}}

@@ -249,7 +249,8 @@ pre {
   #background-canvas,
   .single_hero_background,
   #scroll-to-top,
-  #bmc-wbtn {
+  #bmc-wbtn,
+  body > div[id^="kofi-widget-overlay-"] {
     display: none !important;
   }
 
@@ -451,7 +452,7 @@ pre {
 }
 
 /* Prevent body scroll when mobile menu is open */
-body:has(#mobile-menu-toggle:checked) {
+body:has(#mobile-menu-toggle:checked):not(:has(#mobile-menu-dialog.mobile-menu-style-dropdown)) {
   overflow: hidden;
 }
 
@@ -462,8 +463,9 @@ body:has(#mobile-menu-toggle:checked) {
   }
 }
 
-/* Hide buy me a coffee in mobile menu */
-#bmc-wbtn {
+/* Keep support widgets below mobile menu */
+#bmc-wbtn,
+body > div[id^="kofi-widget-overlay-"] {
   z-index: 50 !important;
 }
 
@@ -483,15 +485,6 @@ body:has(#mobile-menu-toggle:checked) {
   transition:
     visibility 0.3s,
     opacity 0.3s ease-in-out;
-}
-
-/* A backdrop-filter turns the header pill into a containing block for
-   position:fixed descendants, which would trap the fullscreen mobile menu
-   inside it. Lift the filter while that menu is open — the fullscreen
-   overlay covers the header anyway, so the change is invisible. */
-header > div:has(.mobile-menu-fullscreen #mobile-menu-toggle:checked) {
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
 }
 
 /* Dropdowns near the end of the bar open leftward so they stay on screen */

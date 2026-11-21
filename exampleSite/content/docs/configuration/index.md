@@ -288,6 +288,7 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | `article.showHero` | `false` | Whether the thumbnail image will be shown as a hero image within each article page. |
 | `article.heroStyle` | _Not set_ | Style to display the hero image, valid options are: `basic`, `big`, `background`, `thumbAndBackground`. Effective only if `article.showHero = true`. |
 | `article.layoutBackgroundBlur` | `true` | Makes the background image in the background article heroStyle blur with the scroll. Only used when `heroStyle` equals `background` or `thumbAndBackground`. |
+| `article.layoutBackgroundBlurStyle` | `fade` | Valid options are `fade` (the hero image fades out as you scroll) or `classic` (a blurred panel stays fixed behind the whole page). Only used when `heroStyle` equals `background` and `layoutBackgroundBlur` is enabled. |
 | `article.layoutBackgroundHeaderSpace` | `true` | Add space between the header and the body. Only used when `heroStyle` equals `background`. |
 | `article.showBreadcrumbs` | `false` | Whether or not breadcrumbs are displayed in the article header. |
 | `article.showDraftLabel` | `true` | Whether or not the draft indicator is shown next to articles when site is built with `--buildDrafts`. |
@@ -321,6 +322,7 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | `list.showHero` | `false` | Whether the thumbnail image will be shown as a hero image within each list page. |
 | `list.heroStyle` | _Not set_ | Style to display the hero image, valid options are: `basic`, `big`, `background`, `thumbAndBackground`. Effective only if `list.showHero = true`. |
 | `list.layoutBackgroundBlur` | `true` | Makes the background image in the background list heroStyle blur with the scroll. Only used when `heroStyle` equals `background` or `thumbAndBackground`. |
+| `list.layoutBackgroundBlurStyle` | `fade` | Valid options are `fade` (the hero image fades out as you scroll) or `classic` (a blurred panel stays fixed behind the whole page). Only used when `heroStyle` equals `background` and `layoutBackgroundBlur` is enabled. |
 | `list.layoutBackgroundHeaderSpace` | `true` | Add space between the header and the body. Only used when `heroStyle` equals `background`. |
 | `list.showBreadcrumbs` | `false` | Whether or not breadcrumbs are displayed in the header on list pages. |
 | `list.showTableOfContents` | `false` | Whether or not the table of contents is displayed on list pages. |
@@ -349,6 +351,7 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | `taxonomy.showHero` | `false` | Whether the thumbnail image will be shown as a hero image within each taxonomy page. |
 | `taxonomy.heroStyle` | _Not set_ | Style to display the hero image, valid options are: `basic`, `big`, `background`, `thumbAndBackground`. Effective only if `taxonomy.showHero = true`. |
 | `taxonomy.layoutBackgroundBlur` | `true` | Makes the background image in the background taxonomy heroStyle blur with the scroll. Only used when `heroStyle` equals `background` or `thumbAndBackground`. |
+| `taxonomy.layoutBackgroundBlurStyle` | `fade` | Valid options are `fade` (the hero image fades out as you scroll) or `classic` (a blurred panel stays fixed behind the whole page). Only used when `heroStyle` equals `background` and `layoutBackgroundBlur` is enabled. |
 | `taxonomy.layoutBackgroundHeaderSpace` | `true` | Add space between the header and the body. Only used when `heroStyle` equals `background`. |
 | `taxonomy.showBreadcrumbs` | `false` | Whether or not breadcrumbs are displayed in the taxonomy header. |
 | `taxonomy.showViews` | `false` | Whether or not article views are displayed. This requires firebase integrations to be enabled, look below. |
@@ -363,6 +366,7 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | `term.showHero` | `false` | Whether the thumbnail image will be shown as a hero image within each term page. |
 | `term.heroStyle` | _Not set_ | Style to display the hero image, valid options are: `basic`, `big`, `background`, `thumbAndBackground`. Effective only if `term.showHero = true`. |
 | `term.layoutBackgroundBlur` | `true` | Makes the background image in the background term heroStyle blur with the scroll. Only used when `heroStyle` equals `background` or `thumbAndBackground`. |
+| `term.layoutBackgroundBlurStyle` | `fade` | Valid options are `fade` (the hero image fades out as you scroll) or `classic` (a blurred panel stays fixed behind the whole page). Only used when `heroStyle` equals `background` and `layoutBackgroundBlur` is enabled. |
 | `term.layoutBackgroundHeaderSpace` | `true` | Add space between the header and the body. Only used when `heroStyle` equals `background`. |
 | `term.showBreadcrumbs` | `false` | Whether or not breadcrumbs are displayed in the term header. |
 | `term.showViews` | `false` | Whether or not article views are displayed. This requires firebase integrations to be enabled, look below. |
@@ -400,6 +404,7 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | `umamiAnalytics.dataDomains` | _Not set_ | If you want the tracker to only run on specific domains, provide it for your tracker script. This is a comma delimited list of domain names. Such as "yoursite.com,yoursite2.com". |
 | `umamiAnalytics.scriptName` | script.js | The name of the `script.js` used for anti-ad-blocking is configured by the environment variable `TRACKER_SCRIPT_NAME` |
 | `umamiAnalytics.enableTrackEvent` | true | When set to `true` track event will add automatically. If you do not want to add track event, set it to `false`. |
+| `umamiAnalytics.integrity` | _Not set_ | Optional SRI hash for the Umami tracking script. When configured, the script uses `crossorigin="anonymous"`. The script host must support CORS, and the hash must be updated whenever the script changes. |
 
 ### Seline Analytics
 
@@ -408,15 +413,25 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | `selineAnalytics.token` | _Not set_ | The token generated by Seline Analytics for the website. Refer to the [Analytics docs]({{< ref "partials#analytics" >}}) for more details. |
 | `selineAnalytics.enableTrackEvent` | true | When set to `true` track event will add automatically. If you do not want to add track event, set it to `false`. |
 
-### BuyMeACoffee
+### Buy Me a Coffee
 
 | Name | Default | Description |
 | --- | --- | --- |
 | `buymeacoffee.identifier` | _Not set_ | The identifier to the target buymeacoffee account. |
 | `buymeacoffee.globalWidget` | _Not set_ | Activate the global buymeacoffee widget. |
-| `buymeacoffee.globalWidgetMessage` | _Not set_ | Message what will be displayed the first time a new user lands on the site. |
+| `buymeacoffee.globalWidgetMessage` | _Not set_ | Message that will be displayed the first time a new user lands on the site. |
 | `buymeacoffee.globalWidgetColor` | `#FFDD00` | Widget color in hex format. |
 | `buymeacoffee.globalWidgetPosition` | _Not set_ | Position of the widget, i.e. "left" or "right" |
+
+### Ko-fi
+
+| Name | Default | Description |
+| --- | --- | --- |
+| `kofi.identifier` | _Not set_ | The identifier to the target kofi account. |
+| `kofi.globalWidget` | _Not set_ | Activate the global kofi widget. |
+| `kofi.globalWidgetText` | `"Support me"` | The text displayed on the floating widget button. |
+| `kofi.globalWidgetBackgroundColor` | `#00B9FE` | Widget background color in hex format. |
+| `kofi.globalWidgetTextColor` | `#FFFFFF` | Widget text color in hex format. |
 
 ### Verifications
 

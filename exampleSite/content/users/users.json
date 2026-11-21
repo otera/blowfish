@@ -1122,5 +1122,100 @@
     "tags": [
       "Personal site"
     ]
+  },
+  {
+    "title": "yannick.services",
+    "url": "https://yannick.services",
+    "source": "n/a",
+    "tags": [
+      "Business site"
+    ]
+  },
+  {
+    "title": "Bruno Wollmann on Networking",
+    "url": "https://brunowollmann.com",
+    "source": "https://github.com/wollmannbruno/blog",
+    "tags": [
+      "Blog",
+      "Personal Site",
+      "Networking",
+      "Network Architecture"
+    ]
+  },
+  {
+    "title": "Üst Taraf",
+    "url": "https://usttaraf.com",
+    "source": "n/a",
+    "tags": [
+      "Personal site",
+      "Blog",
+      "Astronomy"
+    ]
+  },
+  {
+    "title": "Siya's Blog",
+    "url": "https://blog.siyalight.com",
+    "source": "n/a",
+    "tags": [
+      "Technology Blog",
+      "Full Stack Developer"
+    ]
+  },
+  {
+    "title": "Wiebe Vandendriessche",
+    "url": "https://www.wiebevandendriessche.tech/",
+    "source": "https://github.com/wiebe-vandendriessche/wiebe-vandendriessche",
+    "tags": [
+      "Personal site",
+      "Academia",
+      "Blog"
+    ]
+  },
+  {
+    "title": "libreleo.com",
+    "url": "https://libreleo.com/",
+    "source": "n/a",
+    "tags": [
+      "Blog",
+      "Personal site"
+    ]
+  },
+    {
+    "title": "merox.dev",
+    "url": "https://merox.dev",
+    "source": "n/a",
+    "tags": [
+      "Personal site",
+      "Blog",
+      "DevOps"
+    ]
+  },
+    {
+    "title": "prohomelab.com",
+    "url": "https://prohomelab.com",
+    "source": "n/a",
+    "tags": [
+      "Blog",
+      "Homelab / Self-hosting"
+    ]
+  },
+  {
+    "title": "Nour Agha",
+    "url": "https://agha.dev",
+    "source": "https://github.com/nourkagha/agha.dev",
+    "tags": [
+      "Personal site",
+      "Blog"
+    ]
+  },
+  {
+    "title": "gwils28.github.io",
+    "url": "https://gwils28.github.io",
+    "source": "https://github.com/gwils28/gwils28.github.io",
+    "tags": [
+      "Personal site",
+      "Blog",
+      "Portfolio"
+    ]
   }
 ]
